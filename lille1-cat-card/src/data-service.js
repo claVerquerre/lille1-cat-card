@@ -1,3 +1,4 @@
+import React from 'react';
 
 const initialCards = [
   {
@@ -62,7 +63,7 @@ export function createCard(card) {
         sessionStorage.setItem('cards', JSON.stringify(cards));
         resolve();
       } else {
-        reject('No cards found !');
+        this.reject('No cards found !');
       }
     }, 300);
   });

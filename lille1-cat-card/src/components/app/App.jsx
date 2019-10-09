@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../css/main.css';
+import '../../data-service.js';
+import '../../dom-helper.js';
 
 function CatCard({title="Random cat card"}) {
     return (
@@ -27,32 +29,15 @@ function CatCard({title="Random cat card"}) {
 
 class App extends React.Component {
    render() {
-        var i = 1;
-        var date = new Date().getFullYear();
         return (
-            <main>
-                <header class="bg-primary">
-                    <h1 class="text-white text-center p-3">Cat card app</h1>
-                </header>
-                <section class="container">
-            <h2>Cat card list</h2>
-            <hr />
-            <div class="card-group">
-                <CatCard title="test"></CatCard>
-            </div>
-
-            <button class="btn btn-lg btn-danger circle add"><i class="fas fa-plus"></i></button>
-
-            </section>
-
-
-            <footer class="bg-light">
-            <div class="container text-center">
-                <i class="far fa-copyright mr-1"></i><label> {date} - Lille 1 </label>
-                <span class="small font-italic infos"> No cat has been hurt during the development of this app. </span>
-            </div>
-            </footer>
-        </main>
+            <section class="container">
+                <h2>Cat card list</h2>
+                <hr />
+                <div class="card-group">
+                    <CatCard title="test"></CatCard>
+                </div>
+                <button class="btn btn-lg btn-danger circle add"><i class="fas fa-plus"></i></button>
+            </section>       
       );
    }
 }
