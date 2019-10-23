@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DataService from '../share/data-service';
+import * as dataService from '../../share/data-service';
 
 export default class Form extends Component {
     constructor(props) {
@@ -13,12 +13,11 @@ export default class Form extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onDelete = this.onDelete.bind(this);
-        this.dataService = new DataService();
     };
 
     componentDidMount() {
         if (this.props.match.params.id !== undefined) {
-            this.dataService.getCard(this.props.match.params.id).then(item => {
+            dataService.getCard(this.props.match.params.id.toString()).then(item => {
                 this.setState(item);
             });
         }
@@ -36,20 +35,25 @@ export default class Form extends Component {
         event.preventDefault();
         // if add a new card
         if (this.props.match.params.id === undefined) {
-            this.dataService.createCard(this.state).then(() => {
+            let element = {
+                title: this.state.title,
+                imageUrl: this.state.imageUrl,
+                description: this.state.description
+            };
+            dataService.createCard(element).then(() => {
                 this.props.history.push({pathname: '/'});
             });
         } 
         // if modif a card
         else {
-            this.dataService.updateCard(this.state).then(() => {
+            dataService.updateCard(this.state).then(() => {
                 this.props.history.push({pathname: '/'});
             });
         }
     }
 
     onDelete(event){
-        this.dataService.deleteCard(this.props.match.params.id).then(() =>  {
+        dataService.deleteCard(this.props.match.params.id.toString()).then(() =>  {
             this.props.history.push({pathname: '/'});
         });
     }

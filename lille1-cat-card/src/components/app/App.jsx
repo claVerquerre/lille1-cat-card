@@ -1,7 +1,6 @@
 import React from 'react';
-import '../../css/main.css';
-import Home from '../Home';
-import Form from '../Form';
+import Home from '../home/Home';
+import Form from '../form/Form';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 class App extends React.Component {

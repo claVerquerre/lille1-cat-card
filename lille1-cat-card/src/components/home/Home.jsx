@@ -1,24 +1,21 @@
 import React from 'react';
-import CatCard from './CatCard';
+import CatCard from '../catCard/CatCard';
 import {Link } from 'react-router-dom';
-import DataService from '../share/data-service';
+import * as dataService from '../../share/data-service';
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {data:[]};
-        this.dataService = new DataService();
         this.getItems = this.getItems.bind(this);
     };
 
     componentDidMount() {
-        this.dataService.initData().then(() => {
-            this.getItems();
-        });
+        this.getItems();
     }
 
     getItems() {
-        this.dataService.getAllCards().then(datas => {
+        dataService.getAllCards().then(datas => {
             this.setState({data: datas});
         });
     }    
