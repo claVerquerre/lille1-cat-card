@@ -15,7 +15,8 @@ class App extends React.Component {
                     </header>
 
                     <Route exact path="/" component={Home}/>
-                    <Route path="/form" component={Form}/>
+                    <Route exact path="/form" component={Form}/>
+                    <Route path="/form/:id" component={Form}/>
 
                     <footer className="bg-light">
                         <div className="container text-center">

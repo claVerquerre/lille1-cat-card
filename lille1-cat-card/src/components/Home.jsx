@@ -1,6 +1,6 @@
 import React from 'react';
 import CatCard from './CatCard';
-import {Link, BrowserRouter as Router } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import DataService from '../share/data-service';
 
 class Home extends React.Component {

@@ -10,12 +10,19 @@ export default class Form extends Component {
             imageUrl:"",
             description:""
         };
-        if (this.props.editData !== undefined) this.state = this.props.editData;
         this.handleInputChange = this.handleInputChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.dataService = new DataService();
     };
+
+    componentDidMount() {
+        if (this.props.match.params.id !== undefined) {
+            this.dataService.getCard(this.props.match.params.id).then(item => {
+                this.setState(item);
+            });
+        }
+    }
 
     handleInputChange(event) {
         const value = event.target.value;
@@ -33,21 +40,10 @@ export default class Form extends Component {
                 this.props.history.push({pathname: '/'});
             });
         } else {
-            this.dataService.updateCard(this.state)
+            this.dataService.updateCard(this.state).then(() => {
+                this.props.history.push({pathname: '/'});
+            });
         }
-        // soit ajoute
-        //if (this.props.longueur !== undefined) {
-            //let element = this.state;
-            //element.id =  this.props.longueur+1;
-            //this.props.addNewElement(element);
-        //} else {
-        // soit modifie
-        //    this.props.updateCard(this.props.editData.id,this.state);
-        //}
-
-        
-        
-        
     }
 
     onDelete(event){

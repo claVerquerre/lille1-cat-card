@@ -41,14 +41,14 @@ class DataService {
             setTimeout(() => {
             const cards = JSON.parse(sessionStorage.getItem('cards'));
             if(cards && cards.length) {
-                const card = cards.find(c => c.id === cardId);
+                const card = cards.find(c => c.id === parseInt(cardId));
                 if (card) {
-                resolve(card);
+                    resolve(card);
                 } else {
-                //reject(`Card with id <${cardId}> was not found.`);
+                    reject(`Card with id <${cardId}> was not found.`);
                 }
             } else {
-                //reject('No cards found !');
+                reject('No cards found !');
             }
             }, 300);
         });
