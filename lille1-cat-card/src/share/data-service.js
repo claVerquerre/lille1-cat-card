@@ -95,7 +95,7 @@ class DataService {
             setTimeout(() => {
             const cards = JSON.parse(sessionStorage.getItem('cards'));
             if(cards && cards.length) {
-                const idxToDelete = cards.findIndex(c => c.id === cardId);
+                const idxToDelete = cards.findIndex(c => c.id === parseInt(cardId));
                 if (idxToDelete >= 0) {
                     cards.splice(idxToDelete, 1);
                     sessionStorage.setItem('cards', JSON.stringify(cards));

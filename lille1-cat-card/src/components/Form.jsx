@@ -33,13 +33,14 @@ export default class Form extends Component {
     }
 
     onSubmit(event) {
-        event.preventDefault();
         // if add a new card
         if (this.props.match.params.id === undefined) {
             this.dataService.createCard(this.state).then(() => {
                 this.props.history.push({pathname: '/'});
             });
-        } else {
+        } 
+        // if modif a card
+        else {
             this.dataService.updateCard(this.state).then(() => {
                 this.props.history.push({pathname: '/'});
             });
@@ -47,23 +48,14 @@ export default class Form extends Component {
     }
 
     onDelete(event){
-        /*this.props.deleteCard(this.props.editData.id);
-        this.props.history.push({pathname: '/'});
-
-        let myArray = this.state.data.slice();
-        let elementToReplace = this.state.data[this.state.data.length-1];
-        elementToReplace.id = id;
-        let oldCat = myArray.find((c) => c.id === id);
-        if (oldCat) {
-            Object.assign(oldCat, elementToReplace);
-            myArray.pop();
-            this.setState({data: myArray});
-        }*/
+        this.dataService.deleteCard(this.props.match.params.id).then(() =>  {
+            this.props.history.push({pathname: '/'});
+        });
     }
 
     render() {
         return (
-        <form className="was-validated" onSubmit={this.onSubmit}> 
+        <form onSubmit={this.onSubmit}> 
             <div className="form-group row">
                 <label htmlFor="cardTitle" className="col-sm-2 col-form-label">Card title</label>
                 <input name="title" required className="form-control col-sm-10" placeholder="Card title" type = "text" 
