@@ -33,6 +33,7 @@ export default class Form extends Component {
     }
 
     onSubmit(event) {
+        event.preventDefault();
         // if add a new card
         if (this.props.match.params.id === undefined) {
             this.dataService.createCard(this.state).then(() => {

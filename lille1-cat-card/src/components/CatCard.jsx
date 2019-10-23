@@ -19,7 +19,7 @@ export default  class CatCard extends React.Component {
                 <div className="front card text-center shadow-sm">
                     <img className="card-img-top" src={this.props.componentData.imageUrl} alt="Cat" width="250" height="200" />
                     <div className="card-body">
-                        <h5 className="card-title">{this.props.componentData.title} - {this.props.componentData.id}</h5>
+                        <h5 className="card-title">{this.props.componentData.title}</h5>
                     </div>
                 </div>
     
