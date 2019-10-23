@@ -17,7 +17,7 @@ export default class Form extends Component {
 
     componentDidMount() {
         if (this.props.match.params.id !== undefined) {
-            dataService.getCard(this.props.match.params.id.toString()).then(item => {
+            dataService.getCard(parseInt(this.props.match.params.id)).then(item => {
                 this.setState(item);
             });
         }
@@ -53,7 +53,7 @@ export default class Form extends Component {
     }
 
     onDelete(event){
-        dataService.deleteCard(this.props.match.params.id.toString()).then(() =>  {
+        dataService.deleteCard(parseInt(this.props.match.params.id)).then(() =>  {
             this.props.history.push({pathname: '/'});
         });
     }
