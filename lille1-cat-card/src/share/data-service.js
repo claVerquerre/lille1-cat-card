@@ -24,7 +24,7 @@ const initialCards = [
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const cards = JSON.parse(sessionStorage.getItem('cards'));
-        if(cards && cards.length) {
+        if(cards) {
           resolve(cards);
         } else {
           reject('No cards found !');
@@ -55,7 +55,7 @@ const initialCards = [
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const cards = JSON.parse(sessionStorage.getItem('cards'));
-        if(cards && cards.length) {
+        if(cards) {
           const maxId = Math.max(...cards.map(c => c.id));
           cards.push({ id: maxId + 1, ...card });
           sessionStorage.setItem('cards', JSON.stringify(cards));
