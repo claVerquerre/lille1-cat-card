@@ -1,7 +1,6 @@
 import React from 'react';
 import CatCard from '../catCard/CatCard';
-import {Link } from 'react-router-dom';
-import * as dataService from '../../share/data-service';
+import {getAllCards} from '../../share/data-service';
 
 class Home extends React.Component {
     constructor(props) {
@@ -15,7 +14,7 @@ class Home extends React.Component {
     }
 
     getItems() {
-        dataService.getAllCards().then(datas => {
+        getAllCards().then(datas => {
             this.setState({data: datas});
         });
     }    
@@ -28,12 +27,7 @@ class Home extends React.Component {
                 <div className="card-group">
                     {this.state.data.map((dynamicComponent, i) => 
                         <CatCard key = {i} componentData = {dynamicComponent}/>)}
-                </div> 
-                        
-            <button className="btn btn-lg btn-danger circle add">
-                <Link to="/form"><i className="fas fa-plus"></i></Link>
-            </button>   
-
+                </div>  
             </section>
  
         );

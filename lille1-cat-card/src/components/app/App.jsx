@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from '../home/Home';
 import Form from '../form/Form';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 class App extends React.Component {
     render() {
@@ -16,6 +16,12 @@ class App extends React.Component {
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/form" component={Form}/>
                     <Route path="/form/:id" component={Form}/>
+
+                    <Link to="/form">
+                        <button className="btn btn-lg btn-danger circle add">
+                            <i className="fas fa-plus"></i>
+                        </button>
+                    </Link>
 
                     <footer className="bg-light">
                         <div className="container text-center">
