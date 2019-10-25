@@ -4,10 +4,22 @@
 
 <p>Ce projet a réalisé avec le framework ReactJs.</p>
 
-### Components : 
+## 1. Installer les dependencies et exécuter l'application
+
+Dans le répertoire qui contient `package.json`
+
+- Installer les dependencies
+
+    > npm install
+
+- Exécuter l'application
+
+    > npm start
+
+## 2. Components : 
 - `App` : contient le header et footer
 - `Home` : est la page d'accueil, contient : 
-    + la liste de cart qui sont définie en CatCard. 
+    + la liste de cart qui sont définie en CatCard.
     + un bouton d'ajouter le nouveau chat
     <p align="left">
     <img src="lille1-cat-card/public/home.png" width="600" title="home">
@@ -32,15 +44,15 @@
     + un bouton enregistrer
 
     <p align="left">
-    <img src="lille1-cat-card/public/form.png_aChangerImage_avec_bouton_blanc" width="600" title="form">
+    <img src="lille1-cat-card/public/form.png" width="600" title="form">
     </p>
     
 
-### Gestion des données : 
+## 3. Gestion des données : 
 - les données et les fonctions asynchrones dans le fichier `data-service.js`.
 - les components les importent pour afficher et gérer des données.
 - un loader a été mis en place pour éviter que l'utilisateur modifie les champs qui sont en train d'attendre les données récupérées. Source : https://dribbble.com/shots/6321168-cat
 
-<p align="left">
-<img src="lille1-cat-card/src/share/loading_cat.gif" width="200" title="loader">
-</p>
+    <p align="left">
+    <img src="lille1-cat-card/src/share/loading_cat.gif" width="200" title="loader">
+    </p>
